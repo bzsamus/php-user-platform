@@ -1,0 +1,9 @@
+php doctrine-cli.php orm:generate-entities models
+
+php doctrine-cli.php orm:generate-proxies
+
+If you've tried this before and your database is not empty, you'll need to do this step. Otherwise, skip it.
+php doctrine-cli.php orm:schema-tool:drop --force
+
+And finally, let's create the database tables for Doctrine to store our objects in.
+php doctrine-cli.php orm:schema-tool:create

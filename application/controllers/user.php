@@ -11,7 +11,12 @@ class User extends CI_Controller {
 	}
 
 	public function login(){
+		//var_dump($_POST);
+		//Todo: csrf
 		$data['title'] = "login";
+		$data['sitename'] = "sample site login";
+		$data['css'] = array('login.css');
+		$data['bodyclass'] = "login";
 		$this->parser->parse("login.tpl",$data);
 	}
 }

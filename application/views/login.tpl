@@ -21,9 +21,14 @@
     <div id="content" class="colM">
         
 <div id="content-main">
-<form action="/user/login" method="post" id="login-form"><div style='display:none'><input type='hidden' name='csrfmiddlewaretoken' value='03cdc71acd2173c163a0834cd089674f' /></div>
+
+<!--
+<form action="/user/login" method="post" id="login-form">
+  <input type="hidden" name='{$csrf_token}' value='{$csrf_hash}' />
+-->
+{$form}
+  <div style="width:100%;text-align:center;"><span style="color:red">{$error}</span></div>
   <div class="form-row">
-    
     <label for="id_username" class="required">Username:</label> <input id="id_username" type="text" name="username" maxlength="30" />
   </div>
   <div class="form-row">

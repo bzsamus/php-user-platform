@@ -8,7 +8,7 @@ class Authex{
 
      //load libraries
      //$CI->load->database();
-     $CI->load->library("session");
+     $CI->load->library("doctrine");
  }
 
  function get_userdata()
@@ -21,16 +21,16 @@ class Authex{
      }
      else
      {
-          //$query = $CI->db->get_where("users", array("ID" => $CI->session->userdata("user_id")));
+          //$query = $CI->db->get_where("users", array("ID" => $CI->session->userdata("userid")));
           //return $query->row();	
-	  $user = $this->doctrine->em->find('Entities\User', $CI->session->userdata("user_id"));
+	  $user = $CI->doctrine->em->find('Entities\User', $CI->session->userdata("userid"));
      }
  }
 
  function logged_in()
  {
      $CI =& get_instance();
-     return ($CI->session->userdata("user_id")) ? true : false;
+     return ($CI->session->userdata("userid")) ? true : false;
  }
 
  function login($email, $password)
@@ -43,7 +43,7 @@ class Authex{
      );
 
      //$query = $CI->db->get_where("users", $data);
-	$user = $this->doctrine->em->getRepository('Entities\User')->findOneBy($data);
+	$user = $CI->doctrine->em->getRepository('Entities\User')->findOneBy($data);
 
      if($user == false)
      {
@@ -55,14 +55,14 @@ class Authex{
      else
      {
          //update the last login time
-         $last_login = date("Y-m-d H-i-s");
+         $last_login = new DateTime();
 
-	$user->last_login = $last_login;
-	$user->save();
+	$user->setLastLogin($last_login);
+	$CI->doctrine->em->persist($user);
+        $CI->doctrine->em->flush();
 
          //store user id in the session
-         $CI->session->set_userdata("user_id", $user->getId());
-
+         $CI->session->set_userdata("userid", $user->getId());
          return true;
      }
  }
@@ -70,7 +70,7 @@ class Authex{
  function logout()
  {
      $CI =& get_instance();
-     $CI->session->unset_userdata("user_id");
+     $CI->session->unset_userdata("userid");
  }
 
  function register($email, $password)
@@ -84,8 +84,8 @@ class Authex{
 	$user->setEmail($email);
 	$user->setPassword(sha1($password));
 	$user->setCreated(new DateTime());
-	$this->doctrine->em->persist($user);
-	$this->doctrine->em->flush();
+	$CI->doctrine->em->persist($user);
+	$CI->doctrine->em->flush();
          return true;
      }
 
@@ -96,7 +96,7 @@ class Authex{
  {
      $CI =& get_instance();
 
-	$user = $this->doctrine->em->getRepository('Entities\User')->findOneBy(array('email' => $email));
+	$user = $CI->doctrine->em->getRepository('Entities\User')->findOneBy(array('email' => $email));
 
      return (is_null($user)) ? true : false;
  }

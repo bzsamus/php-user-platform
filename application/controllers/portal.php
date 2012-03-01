@@ -7,11 +7,15 @@ class Portal extends CI_Controller {
 		parent::__construct();
 
                 //load the library
-                $this->load->library("authex");
                 $this->load->helper('url');
-                if(! $this->authex->logged_in()){
+
+                if(!$this->authex->logged_in()){
                         redirect("/user/login");
                 }
+	}
+
+	public function index(){
+		echo "hello";
 	}
 }
 ?>

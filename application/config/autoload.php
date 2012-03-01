@@ -52,7 +52,7 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-$autoload['libraries'] = array('doctrine','parser','authex');
+$autoload['libraries'] = array('doctrine','session','parser','authex');
 
 
 /*
@@ -64,7 +64,7 @@ $autoload['libraries'] = array('doctrine','parser','authex');
 |	$autoload['helper'] = array('url', 'file');
 */
 
-$autoload['helper'] = array();
+$autoload['helper'] = array('cookie');
 
 
 /*

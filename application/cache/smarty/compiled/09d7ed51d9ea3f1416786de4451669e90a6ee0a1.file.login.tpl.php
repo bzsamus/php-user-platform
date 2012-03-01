@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2012-02-20 06:20:53
+<?php /* Smarty version Smarty-3.1.7, created on 2012-02-20 14:27:36
          compiled from "application/views/login.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:783273854f41615dc07156-33076755%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '09d7ed51d9ea3f1416786de4451669e90a6ee0a1' => 
     array (
       0 => 'application/views/login.tpl',
-      1 => 1329689914,
+      1 => 1329719252,
       2 => 'file',
     ),
     '362c2aba28b903456d185ab556019218d88a24bd' => 
@@ -67,9 +67,18 @@ $_smarty_tpl->tpl_vars['c']->_loop = true;
     <div id="content" class="colM">
         
 <div id="content-main">
-<form action="/user/login" method="post" id="login-form"><div style='display:none'><input type='hidden' name='csrfmiddlewaretoken' value='03cdc71acd2173c163a0834cd089674f' /></div>
+
+<!--
+<form action="/user/login" method="post" id="login-form">
+  <input type="hidden" name='<?php echo $_smarty_tpl->tpl_vars['csrf_token']->value;?>
+' value='<?php echo $_smarty_tpl->tpl_vars['csrf_hash']->value;?>
+' />
+-->
+<?php echo $_smarty_tpl->tpl_vars['form']->value;?>
+
+  <div style="width:100%;text-align:center;"><span style="color:red"><?php echo $_smarty_tpl->tpl_vars['error']->value;?>
+</span></div>
   <div class="form-row">
-    
     <label for="id_username" class="required">Username:</label> <input id="id_username" type="text" name="username" maxlength="30" />
   </div>
   <div class="form-row">

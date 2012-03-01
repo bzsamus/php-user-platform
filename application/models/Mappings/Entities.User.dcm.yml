@@ -13,7 +13,7 @@ Entities\User:
         strategy: AUTO
     password:
       type: string
-      length: 32
+      length: 40
       nullable: false
     firstName:
       type: string

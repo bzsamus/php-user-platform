@@ -147,4 +147,104 @@ class User
     {
         return $this->created;
     }
+    /**
+     * @var datetime $last_login
+     */
+    private $last_login;
+
+
+    /**
+     * Set last_login
+     *
+     * @param datetime $lastLogin
+     */
+    public function setLastLogin($lastLogin)
+    {
+        $this->last_login = $lastLogin;
+    }
+
+    /**
+     * Get last_login
+     *
+     * @return datetime $lastLogin
+     */
+    public function getLastLogin()
+    {
+        return $this->last_login;
+    }
+    /**
+     * @var integer $role
+     */
+    private $role;
+
+    /**
+     * @var Entities\UserProfile
+     */
+    private $profile;
+
+
+    /**
+     * Set role
+     *
+     * @param integer $role
+     */
+    public function setRole($role)
+    {
+        $this->role = $role;
+    }
+
+    /**
+     * Get role
+     *
+     * @return integer $role
+     */
+    public function getRole()
+    {
+        return $this->role;
+    }
+
+    /**
+     * Set profile
+     *
+     * @param Entities\UserProfile $profile
+     */
+    public function setProfile(\Entities\UserProfile $profile)
+    {
+        $this->profile = $profile;
+    }
+
+    /**
+     * Get profile
+     *
+     * @return Entities\UserProfile $profile
+     */
+    public function getProfile()
+    {
+        return $this->profile;
+    }
+    /**
+     * @var integer $profile_id
+     */
+    private $profile_id;
+
+
+    /**
+     * Set profile_id
+     *
+     * @param integer $profileId
+     */
+    public function setProfileId($profileId)
+    {
+        $this->profile_id = $profileId;
+    }
+
+    /**
+     * Get profile_id
+     *
+     * @return integer $profileId
+     */
+    public function getProfileId()
+    {
+        return $this->profile_id;
+    }
 }

@@ -1,5 +1,11 @@
 Entities\User:
   type: entity
+  oneToOne:
+    profile:
+      targetEntity: Entities\UserProfile
+      joinColumn:
+        name: profile_id
+        referenceColumnName: id
   table: users
   uniqueConstraints:
     email_index:
@@ -11,6 +17,8 @@ Entities\User:
       id: true
       generator:
         strategy: AUTO
+    profile_id:
+      type: integer
     password:
       type: string
       length: 40
@@ -25,6 +33,9 @@ Entities\User:
       length: 255
       nullable: false
       column: last_name
+    role:
+      type: integer
+      nullable: false
     email:
       type: string
       length: 255

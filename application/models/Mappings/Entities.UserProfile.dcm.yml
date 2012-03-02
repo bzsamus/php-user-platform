@@ -1,0 +1,24 @@
+Entities\UserProfile:
+  type: entity
+  table: user_profile
+  fields:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+    profile_pic:
+      type: string
+      length: 200
+    location:
+      type: string
+      length: 40
+      nullable: false
+    gender:
+      type: string
+      length: 7
+      nullable: false
+    bio:
+      type: string
+      length: 200
+      nullable: false

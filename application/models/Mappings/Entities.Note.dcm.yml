@@ -1,0 +1,26 @@
+Entities\Note:
+  type: entity
+  oneToOne:
+    user_id:
+      targetEntity: Entities\User
+      joinColumn:
+        name: user_id
+        referenceColumnName: id
+  table: note
+  fields:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+    title:
+      type: string
+      length: 100
+      nullable: false
+    content:
+      type: string
+      length: 1000
+      nullable: false
+    created:
+      type: datetime
+      nullable: false

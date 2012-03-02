@@ -1,0 +1,25 @@
+Entities\Friends:
+  type: entity
+  oneToOne:
+    uid1:
+      targetEntity: Entities\User
+      joinColumn:
+        name: uid1
+        referenceColumnName: id
+    uid2:
+      targetEntity: Entities\User
+      joinColumn:
+        name: uid2
+        referenceColumnName: id
+  table: friends
+  uniqueConstraints:
+    uid_index:
+      columns:
+       - uid1
+       - uid2
+  fields:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO

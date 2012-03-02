@@ -1,0 +1,16 @@
+Entities\FriendRequest:
+  type: entity
+  table: friend_request
+  fields:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+    fromuid:
+      type: integer
+    touid:
+      type: integer
+    request_time:
+      type: datetime
+      nullable: false

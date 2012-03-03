@@ -13,6 +13,11 @@ class UserProfile
     private $id;
 
     /**
+     * @var string $profile_pic
+     */
+    private $profile_pic;
+
+    /**
      * @var string $location
      */
     private $location;
@@ -23,9 +28,9 @@ class UserProfile
     private $gender;
 
     /**
-     * @var string $bio
+     * @var string $about
      */
-    private $bio;
+    private $about;
 
 
     /**
@@ -36,6 +41,26 @@ class UserProfile
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set profile_pic
+     *
+     * @param string $profilePic
+     */
+    public function setProfilePic($profilePic)
+    {
+        $this->profile_pic = $profilePic;
+    }
+
+    /**
+     * Get profile_pic
+     *
+     * @return string $profilePic
+     */
+    public function getProfilePic()
+    {
+        return $this->profile_pic;
     }
 
     /**
@@ -79,47 +104,22 @@ class UserProfile
     }
 
     /**
-     * Set bio
+     * Set about
      *
-     * @param string $bio
+     * @param string $about
      */
-    public function setBio($bio)
+    public function setAbout($about)
     {
-        $this->bio = $bio;
+        $this->about = $about;
     }
 
     /**
-     * Get bio
+     * Get about
      *
-     * @return string $bio
+     * @return string $about
      */
-    public function getBio()
+    public function getAbout()
     {
-        return $this->bio;
-    }
-    /**
-     * @var string $profile_pic
-     */
-    private $profile_pic;
-
-
-    /**
-     * Set profile_pic
-     *
-     * @param string $profilePic
-     */
-    public function setProfilePic($profilePic)
-    {
-        $this->profile_pic = $profilePic;
-    }
-
-    /**
-     * Get profile_pic
-     *
-     * @return string $profilePic
-     */
-    public function getProfilePic()
-    {
-        return $this->profile_pic;
+        return $this->about;
     }
 }

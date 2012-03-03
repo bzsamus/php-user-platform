@@ -28,9 +28,14 @@ class Note
     private $created;
 
     /**
+     * @var integer $permission
+     */
+    private $permission;
+
+    /**
      * @var Entities\User
      */
-    private $user_id;
+    private $user;
 
 
     /**
@@ -104,22 +109,42 @@ class Note
     }
 
     /**
-     * Set user_id
+     * Set permission
      *
-     * @param Entities\User $userId
+     * @param integer $permission
      */
-    public function setUserId(\Entities\User $userId)
+    public function setPermission($permission)
     {
-        $this->user_id = $userId;
+        $this->permission = $permission;
     }
 
     /**
-     * Get user_id
+     * Get permission
      *
-     * @return Entities\User $userId
+     * @return integer $permission
      */
-    public function getUserId()
+    public function getPermission()
     {
-        return $this->user_id;
+        return $this->permission;
+    }
+
+    /**
+     * Set user
+     *
+     * @param Entities\User $user
+     */
+    public function setUser(\Entities\User $user)
+    {
+        $this->user = $user;
+    }
+
+    /**
+     * Get user
+     *
+     * @return Entities\User $user
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

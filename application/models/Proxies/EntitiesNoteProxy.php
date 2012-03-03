@@ -69,10 +69,22 @@ class EntitiesNoteProxy extends \Entities\Note implements \Doctrine\ORM\Proxy\Pr
         return parent::getCreated();
     }
 
-    public function setUserId(\Entities\User $userId)
+    public function setPermission($permission)
     {
         $this->_load();
-        return parent::setUserId($userId);
+        return parent::setPermission($permission);
+    }
+
+    public function getPermission()
+    {
+        $this->_load();
+        return parent::getPermission();
+    }
+
+    public function addUserId(\Entities\User $userId)
+    {
+        $this->_load();
+        return parent::addUserId($userId);
     }
 
     public function getUserId()
@@ -81,10 +93,22 @@ class EntitiesNoteProxy extends \Entities\Note implements \Doctrine\ORM\Proxy\Pr
         return parent::getUserId();
     }
 
+    public function setUser(\Entities\User $user)
+    {
+        $this->_load();
+        return parent::setUser($user);
+    }
+
+    public function getUser()
+    {
+        $this->_load();
+        return parent::getUser();
+    }
+
 
     public function __sleep()
     {
-        return array('__isInitialized__', 'id', 'title', 'content', 'created', 'user_id');
+        return array('__isInitialized__', 'id', 'title', 'content', 'created', 'permission', 'user');
     }
 
     public function __clone()

@@ -13,6 +13,11 @@ class User
     private $id;
 
     /**
+     * @var integer $profile_id
+     */
+    private $profile_id;
+
+    /**
      * @var string $password
      */
     private $password;
@@ -28,6 +33,11 @@ class User
     private $lastName;
 
     /**
+     * @var integer $role
+     */
+    private $role;
+
+    /**
      * @var string $email
      */
     private $email;
@@ -36,6 +46,16 @@ class User
      * @var datetime $created
      */
     private $created;
+
+    /**
+     * @var datetime $last_login
+     */
+    private $last_login;
+
+    /**
+     * @var Entities\UserProfile
+     */
+    private $profile;
 
 
     /**
@@ -46,6 +66,26 @@ class User
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set profile_id
+     *
+     * @param integer $profileId
+     */
+    public function setProfileId($profileId)
+    {
+        $this->profile_id = $profileId;
+    }
+
+    /**
+     * Get profile_id
+     *
+     * @return integer $profileId
+     */
+    public function getProfileId()
+    {
+        return $this->profile_id;
     }
 
     /**
@@ -109,6 +149,26 @@ class User
     }
 
     /**
+     * Set role
+     *
+     * @param integer $role
+     */
+    public function setRole($role)
+    {
+        $this->role = $role;
+    }
+
+    /**
+     * Get role
+     *
+     * @return integer $role
+     */
+    public function getRole()
+    {
+        return $this->role;
+    }
+
+    /**
      * Set email
      *
      * @param string $email
@@ -147,11 +207,6 @@ class User
     {
         return $this->created;
     }
-    /**
-     * @var datetime $last_login
-     */
-    private $last_login;
-
 
     /**
      * Set last_login
@@ -172,36 +227,6 @@ class User
     {
         return $this->last_login;
     }
-    /**
-     * @var integer $role
-     */
-    private $role;
-
-    /**
-     * @var Entities\UserProfile
-     */
-    private $profile;
-
-
-    /**
-     * Set role
-     *
-     * @param integer $role
-     */
-    public function setRole($role)
-    {
-        $this->role = $role;
-    }
-
-    /**
-     * Get role
-     *
-     * @return integer $role
-     */
-    public function getRole()
-    {
-        return $this->role;
-    }
 
     /**
      * Set profile
@@ -221,30 +246,5 @@ class User
     public function getProfile()
     {
         return $this->profile;
-    }
-    /**
-     * @var integer $profile_id
-     */
-    private $profile_id;
-
-
-    /**
-     * Set profile_id
-     *
-     * @param integer $profileId
-     */
-    public function setProfileId($profileId)
-    {
-        $this->profile_id = $profileId;
-    }
-
-    /**
-     * Get profile_id
-     *
-     * @return integer $profileId
-     */
-    public function getProfileId()
-    {
-        return $this->profile_id;
     }
 }

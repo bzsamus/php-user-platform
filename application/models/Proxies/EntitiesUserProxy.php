@@ -33,6 +33,18 @@ class EntitiesUserProxy extends \Entities\User implements \Doctrine\ORM\Proxy\Pr
         return parent::getId();
     }
 
+    public function setProfileId($profileId)
+    {
+        $this->_load();
+        return parent::setProfileId($profileId);
+    }
+
+    public function getProfileId()
+    {
+        $this->_load();
+        return parent::getProfileId();
+    }
+
     public function setPassword($password)
     {
         $this->_load();
@@ -67,6 +79,18 @@ class EntitiesUserProxy extends \Entities\User implements \Doctrine\ORM\Proxy\Pr
     {
         $this->_load();
         return parent::getLastName();
+    }
+
+    public function setRole($role)
+    {
+        $this->_load();
+        return parent::setRole($role);
+    }
+
+    public function getRole()
+    {
+        $this->_load();
+        return parent::getRole();
     }
 
     public function setEmail($email)
@@ -105,18 +129,6 @@ class EntitiesUserProxy extends \Entities\User implements \Doctrine\ORM\Proxy\Pr
         return parent::getLastLogin();
     }
 
-    public function setRole($role)
-    {
-        $this->_load();
-        return parent::setRole($role);
-    }
-
-    public function getRole()
-    {
-        $this->_load();
-        return parent::getRole();
-    }
-
     public function setProfile(\Entities\UserProfile $profile)
     {
         $this->_load();
@@ -127,18 +139,6 @@ class EntitiesUserProxy extends \Entities\User implements \Doctrine\ORM\Proxy\Pr
     {
         $this->_load();
         return parent::getProfile();
-    }
-
-    public function setProfileId($profileId)
-    {
-        $this->_load();
-        return parent::setProfileId($profileId);
-    }
-
-    public function getProfileId()
-    {
-        $this->_load();
-        return parent::getProfileId();
     }
 
 

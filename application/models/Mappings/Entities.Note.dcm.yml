@@ -1,11 +1,8 @@
 Entities\Note:
   type: entity
-  oneToOne:
-    user_id:
-      targetEntity: Entities\User
-      joinColumn:
-        name: user_id
-        referencedColumnName: id
+  manyToOne:
+    user:
+      targetEntity: User
   table: note
   fields:
     id:
@@ -23,4 +20,7 @@ Entities\Note:
       nullable: false
     created:
       type: datetime
+      nullable: false
+    permission:
+      type: integer
       nullable: false

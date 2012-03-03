@@ -14,7 +14,6 @@
     <div id="content" class="colM">
         
 <div id="content-main">
-
 {$form}
   <div style="width:100%;text-align:left;">
     {if $error}<p class="error" style="text-align: center">{$error}</p>{/if}
@@ -29,7 +28,7 @@
     	<label>Password</label>
 	<span class="fff"></span>
 	</li>
-	<input type="hidden" name="next" value="/" />
+	<input type="hidden" name="next" value="{$next}" />
     </ul>  
 	<div class="non_inputs">
             <a href="#" class="Button WhiteButton Button18" onclick="$('.AuthForm').submit(); return false"><strong>Login</strong><span></span></a>
@@ -53,7 +52,7 @@ document.getElementById('id_username').focus()
 {block name=js}
 $(document).ready(function(){
 	$('input').each(function(){
-		$(this).keyup(function(){
+		$(this).keyup(function(e){
 			var label = $(this).parent().find('label');
 			if($(this).val() == ""){
 				label.show();

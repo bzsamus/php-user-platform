@@ -22,9 +22,16 @@ class Authex{
      else
      {
           //$query = $CI->db->get_where("users", array("ID" => $CI->session->userdata("userid")));
-          //return $query->row();	
-	  $user = $CI->doctrine->em->find('Entities\User', $CI->session->userdata("userid"));
-     }
+          //return $query->row();
+	  $tmp = $CI->doctrine->em->find('Entities\User', $CI->session->userdata("userid"));
+	  $user['id'] = $tmp->getId();
+          $user['firstname'] = $tmp->getFirstName();
+	  $user['lastname'] = $tmp->getLastName();
+	  $user['email'] = $tmp->getEmail();
+	  $user['location'] = $tmp->getProfile()->getLocation();
+	  $user['about'] = $tmp->getProfile()->getAbout();
+	  return $user;
+      }
  }
 
  function logged_in()

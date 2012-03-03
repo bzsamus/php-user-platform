@@ -33,6 +33,18 @@ class EntitiesUserProfileProxy extends \Entities\UserProfile implements \Doctrin
         return parent::getId();
     }
 
+    public function setProfilePic($profilePic)
+    {
+        $this->_load();
+        return parent::setProfilePic($profilePic);
+    }
+
+    public function getProfilePic()
+    {
+        $this->_load();
+        return parent::getProfilePic();
+    }
+
     public function setLocation($location)
     {
         $this->_load();
@@ -57,34 +69,22 @@ class EntitiesUserProfileProxy extends \Entities\UserProfile implements \Doctrin
         return parent::getGender();
     }
 
-    public function setBio($bio)
+    public function setAbout($about)
     {
         $this->_load();
-        return parent::setBio($bio);
+        return parent::setAbout($about);
     }
 
-    public function getBio()
+    public function getAbout()
     {
         $this->_load();
-        return parent::getBio();
-    }
-
-    public function setProfilePic($profilePic)
-    {
-        $this->_load();
-        return parent::setProfilePic($profilePic);
-    }
-
-    public function getProfilePic()
-    {
-        $this->_load();
-        return parent::getProfilePic();
+        return parent::getAbout();
     }
 
 
     public function __sleep()
     {
-        return array('__isInitialized__', 'id', 'profile_pic', 'location', 'gender', 'bio');
+        return array('__isInitialized__', 'id', 'profile_pic', 'location', 'gender', 'about');
     }
 
     public function __clone()

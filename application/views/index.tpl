@@ -7,6 +7,10 @@
 		<link rel="stylesheet" type="text/css" href="/media/css/{$c}" />
 	{/foreach}
 	<script type="text/javascript" src="/media/js/jquery.min.js"></script>
+	{foreach from=$javascript item=j}
+	<script type="text/javascript" src="/media/js/{$j}"></script>
+	{/foreach}
+	
 </head>
 <body {if $bodyclass}class="{$bodyclass}"{/if}>
 

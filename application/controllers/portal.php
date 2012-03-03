@@ -15,15 +15,11 @@ class Portal extends CI_Controller {
 		if($this->authex->logged_in()){
                         $data['user'] = $this->authex->get_userdata();
                 }
-		$qb = $this->doctrine->em->createQueryBuilder();
-		$qb->add('select','n')
-			->add('from','Entities\Note n')
-			->add('where','n.permission = 3')
-			->add('orderBy','n.created')
-			->setMaxResults(20);
-		$query = $qb->getQuery();
+		//$qb = $this->doctrine->em->createQueryBuilder();
+		$query = $this->doctrine->em->createQuery("Select n,u.id as uid,u.firstName,u.lastName From Entities\Note n,Entities\User u WHERE n.user = u.id AND n.permission>0 ORDER BY n.created");
 		$rs = $query->getArrayResult();
 		$data['notes'] = $rs;
+		$data['javascript'] = array("jquery.masonry.min.js");
 		$this->parser->parse("portal.tpl",$data);	
 	}
 }

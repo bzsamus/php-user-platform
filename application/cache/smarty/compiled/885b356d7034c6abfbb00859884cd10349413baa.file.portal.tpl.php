@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2012-03-03 21:06:35
+<?php /* Smarty version Smarty-3.1.7, created on 2012-03-04 05:28:13
          compiled from "application/views/portal.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:14848814814f51d9c57b1130-72885629%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,13 +7,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '885b356d7034c6abfbb00859884cd10349413baa' => 
     array (
       0 => 'application/views/portal.tpl',
-      1 => 1330770036,
+      1 => 1330810082,
       2 => 'file',
     ),
     '362c2aba28b903456d185ab556019218d88a24bd' => 
     array (
       0 => 'application/views/index.tpl',
-      1 => 1330779624,
+      1 => 1330809765,
       2 => 'file',
     ),
   ),
@@ -27,6 +27,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   array (
     'css' => 0,
     'c' => 0,
+    'javascript' => 0,
+    'j' => 0,
     'bodyclass' => 0,
     'user' => 0,
   ),
@@ -49,6 +51,15 @@ $_smarty_tpl->tpl_vars['c']->_loop = true;
 " />
 	<?php } ?>
 	<script type="text/javascript" src="/media/js/jquery.min.js"></script>
+	<?php  $_smarty_tpl->tpl_vars['j'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['j']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['javascript']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['j']->key => $_smarty_tpl->tpl_vars['j']->value){
+$_smarty_tpl->tpl_vars['j']->_loop = true;
+?>
+	<script type="text/javascript" src="/media/js/<?php echo $_smarty_tpl->tpl_vars['j']->value;?>
+"></script>
+	<?php } ?>
+	
 </head>
 <body <?php if ($_smarty_tpl->tpl_vars['bodyclass']->value){?>class="<?php echo $_smarty_tpl->tpl_vars['bodyclass']->value;?>
 "<?php }?>>
@@ -78,9 +89,53 @@ $_smarty_tpl->tpl_vars['c']->_loop = true;
 </div>
 
 
+<div id="wrapper" class="BoardLayout">
+<div id="ColumnContainer" style="margin-top: 49px;">
 
+<?php  $_smarty_tpl->tpl_vars['note'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['note']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['notes']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['note']->key => $_smarty_tpl->tpl_vars['note']->value){
+$_smarty_tpl->tpl_vars['note']->_loop = true;
+?>
+<div class="pin" data-id="<?php echo $_smarty_tpl->tpl_vars['note']->value['id'];?>
+">
+	<h3><?php echo $_smarty_tpl->tpl_vars['note']->value[0]['title'];?>
+</h3>
+        <a href="/note/<?php echo $_smarty_tpl->tpl_vars['note']->value[0]['id'];?>
+/" class="PinImage ImgLink">
+            	<img src="http://media-cdn.pinterest.com/upload/83598136802667669_XNijjvaP_b.jpg" alt="star light fixture - West Vintage Trading Company" class="PinImageImg" style="height: 144px;" />
+        </a>
+        <p class="description"><?php echo $_smarty_tpl->tpl_vars['note']->value[0]['content'];?>
+</p>
+        <p class="stats colorless"><span class="LikesCount">11 likes&nbsp;&nbsp;</span></p>
+        <div class="convo attribution clearfix">
+                <a href="/user/<?php echo $_smarty_tpl->tpl_vars['note']->value['uid'];?>
+" title="<?php echo $_smarty_tpl->tpl_vars['note']->value['firstName'];?>
+ <?php echo $_smarty_tpl->tpl_vars['note']->value['lastName'];?>
+" class="ImgLink">
+                    <img src="https://a248.e.akamai.net/media.pinterest.com.s3.amazonaws.com/avatars/kelley_white3-49.jpg" alt="Picture of Kelley W" />
+                </a>
+                <p>
+                    by <a href="/user/<?php echo $_smarty_tpl->tpl_vars['note']->value['uid'];?>
+"><?php echo $_smarty_tpl->tpl_vars['note']->value['firstName'];?>
+ <?php echo $_smarty_tpl->tpl_vars['note']->value['lastName'];?>
+</a>
+                </p>
+        </div>
+</div>
+<?php } ?>
+</div>
+</div>
 
 <script>
+
+$(function(){
+  $('#ColumnContainer').masonry({
+    // options
+    itemSelector : '.pin',
+    columnWidth : 240
+  });
+});
 
 </script>
 </body>

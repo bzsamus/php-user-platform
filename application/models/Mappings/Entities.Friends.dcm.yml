@@ -5,12 +5,12 @@ Entities\Friends:
       targetEntity: Entities\User
       joinColumn:
         name: uid1
-        referenceColumnName: id
+        referencedColumnName: id
     uid2:
       targetEntity: Entities\User
       joinColumn:
         name: uid2
-        referenceColumnName: id
+        referencedColumnName: id
   table: friends
   uniqueConstraints:
     uid_index:

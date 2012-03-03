@@ -15,26 +15,22 @@ class User extends CI_Controller {
 	public function login(){
 		$username = $this->input->post('username');
 		$password = $this->input->post('password');
+	
+		// setup form data
+		$data['title'] = "login";
+                $data['css'] = array('login.css');
+                $data['bodyclass'] = "login";
+                $data['form'] = form_open('user/login',array('class'=>'Form FancyForm AuthForm'));	
 		
 		if($username && $password){
 			if($this->authex->login($username,$password)){
 			}
 			else{
 				$data['error'] = "login error";
-				$data['title'] = "login";
-                        	$data['sitename'] = "sample site login";
-                        	$data['css'] = array('login.css');
-                        	$data['bodyclass'] = "login";
-                        	$data['form'] = form_open('user/login');
                         	$this->parser->parse("login.tpl",$data);	
 			}
 		}
 		else{
-			$data['title'] = "login";
-			$data['sitename'] = "sample site login";
-			$data['css'] = array('login.css');
-			$data['bodyclass'] = "login";
-			$data['form'] = form_open('user/login');
 			$this->parser->parse("login.tpl",$data);
 		}
 	}

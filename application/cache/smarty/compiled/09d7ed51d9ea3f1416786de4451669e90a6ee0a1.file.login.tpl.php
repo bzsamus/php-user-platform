@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2012-02-20 14:27:36
+<?php /* Smarty version Smarty-3.1.7, created on 2012-03-03 13:04:17
          compiled from "application/views/login.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:783273854f41615dc07156-33076755%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,13 +7,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '09d7ed51d9ea3f1416786de4451669e90a6ee0a1' => 
     array (
       0 => 'application/views/login.tpl',
-      1 => 1329719252,
+      1 => 1330751053,
       2 => 'file',
     ),
     '362c2aba28b903456d185ab556019218d88a24bd' => 
     array (
       0 => 'application/views/index.tpl',
-      1 => 1329690010,
+      1 => 1330748162,
       2 => 'file',
     ),
   ),
@@ -47,6 +47,7 @@ $_smarty_tpl->tpl_vars['c']->_loop = true;
 		<link rel="stylesheet" type="text/css" href="/media/css/<?php echo $_smarty_tpl->tpl_vars['c']->value;?>
 " />
 	<?php } ?>
+	<script type="text/javascript" src="/media/js/jquery.min.js"></script>
 </head>
 <body <?php if ($_smarty_tpl->tpl_vars['bodyclass']->value){?>class="<?php echo $_smarty_tpl->tpl_vars['bodyclass']->value;?>
 "<?php }?>>
@@ -54,42 +55,33 @@ $_smarty_tpl->tpl_vars['c']->_loop = true;
 <!-- Container -->
 <div id="container">
 
-    <!-- Header -->
-    <div id="header">
-        <div id="branding">
-		<h1 id="site-name"><?php echo $_smarty_tpl->tpl_vars['sitename']->value;?>
-</h1>
-        </div>
-    </div>
-    <!-- END Header -->
 
     <!-- Content -->
     <div id="content" class="colM">
         
 <div id="content-main">
 
-<!--
-<form action="/user/login" method="post" id="login-form">
-  <input type="hidden" name='<?php echo $_smarty_tpl->tpl_vars['csrf_token']->value;?>
-' value='<?php echo $_smarty_tpl->tpl_vars['csrf_hash']->value;?>
-' />
--->
 <?php echo $_smarty_tpl->tpl_vars['form']->value;?>
 
-  <div style="width:100%;text-align:center;"><span style="color:red"><?php echo $_smarty_tpl->tpl_vars['error']->value;?>
-</span></div>
-  <div class="form-row">
-    <label for="id_username" class="required">Username:</label> <input id="id_username" type="text" name="username" maxlength="30" />
-  </div>
-  <div class="form-row">
-    
-    <label for="id_password" class="required">Password:</label> <input type="password" name="password" id="id_password" />
-    <input type="hidden" name="this_is_the_login_form" value="1" />
-    <input type="hidden" name="next" value="/admin/" />
-  </div>
-  <div class="submit-row">
-    <label>&nbsp;</label><input type="submit" value="Log in" />
-  </div>
+  <div style="width:100%;text-align:left;">
+    <?php if ($_smarty_tpl->tpl_vars['error']->value){?><p class="error" style="text-align: center"><?php echo $_smarty_tpl->tpl_vars['error']->value;?>
+</p><?php }?>
+    <ul>
+	<li>
+    	<input id="id_username" type="text" name="username" maxlength="30" />
+    	<label>Email</label>
+	<span class="fff"></span>
+	</li>
+	<li>
+    	<input type="password" name="password" id="id_password" />
+    	<label>Password</label>
+	<span class="fff"></span>
+	</li>
+	<input type="hidden" name="next" value="/" />
+    </ul>  
+	<div class="non_inputs">
+            <a href="#" class="Button WhiteButton Button18" onclick="$('.AuthForm').submit(); return false"><strong>Login</strong><span></span></a>
+        </div>
 </form>
 
 <script type="text/javascript">
@@ -105,6 +97,23 @@ document.getElementById('id_username').focus()
 <!-- END Container -->
 
 
+<script>
+
+$(document).ready(function(){
+	$('input').each(function(){
+		$(this).keyup(function(){
+			var label = $(this).parent().find('label');
+			if($(this).val() == ""){
+				label.show();
+			}
+			else{
+				label.hide();
+			}
+		});
+	});
+});
+
+</script>
 </body>
 </html>
 <?php }} ?>

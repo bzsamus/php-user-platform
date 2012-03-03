@@ -5,7 +5,7 @@ Entities\User:
       targetEntity: Entities\UserProfile
       joinColumn:
         name: profile_id
-        referenceColumnName: id
+        referencedColumnName: id
   table: users
   uniqueConstraints:
     email_index:

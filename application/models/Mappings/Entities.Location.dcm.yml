@@ -1,0 +1,19 @@
+Entities\Location:
+  type: entity
+  table: location
+  fields:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+    name:
+      type: string
+      length: 100
+      nullable: false
+    longtitude:
+      type: float
+      nullable: true
+    latitude:
+      type: float
+      nullable: true    

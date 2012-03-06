@@ -1,0 +1,14 @@
+Entities\EventCategory:
+  type: entity
+  manyToOne:
+    event:
+      targetEntity: Event
+    category:
+      targetEntity: Category
+  table: event_category
+  fields:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO

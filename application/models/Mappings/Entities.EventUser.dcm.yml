@@ -1,20 +1,20 @@
-Entities\FriendRequest:
+Entities\EventUser:
   type: entity
   manyToOne:
-    from:
+    event:
+      targetEntity: Event
+    user:
       targetEntity: User
-    to:
-      targetEntity: User
-  table: friend_request
+  table: event_user
   fields:
     id:
       type: integer
       id: true
       generator:
         strategy: AUTO
-    request_time:
+    joined:
       type: datetime
       nullable: false
-    complete:
-      type: smallint
-      nullable: true
+    message:
+      type: text
+      nullable: false

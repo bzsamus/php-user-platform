@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2012-03-04 04:34:50
+<?php /* Smarty version Smarty-3.1.7, created on 2012-03-04 10:25:21
          compiled from "application/views/mynote.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:18082674744f5219929a5336-77505880%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,13 +7,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd88283f6a18cac378739d5eced3b17926c3abd62' => 
     array (
       0 => 'application/views/mynote.tpl',
-      1 => 1330788976,
+      1 => 1330827918,
       2 => 'file',
     ),
     '362c2aba28b903456d185ab556019218d88a24bd' => 
     array (
       0 => 'application/views/index.tpl',
-      1 => 1330804226,
+      1 => 1330809765,
       2 => 'file',
     ),
   ),
@@ -27,6 +27,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   array (
     'css' => 0,
     'c' => 0,
+    'javascript' => 0,
+    'j' => 0,
     'bodyclass' => 0,
     'user' => 0,
   ),
@@ -49,6 +51,15 @@ $_smarty_tpl->tpl_vars['c']->_loop = true;
 " />
 	<?php } ?>
 	<script type="text/javascript" src="/media/js/jquery.min.js"></script>
+	<?php  $_smarty_tpl->tpl_vars['j'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['j']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['javascript']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['j']->key => $_smarty_tpl->tpl_vars['j']->value){
+$_smarty_tpl->tpl_vars['j']->_loop = true;
+?>
+	<script type="text/javascript" src="/media/js/<?php echo $_smarty_tpl->tpl_vars['j']->value;?>
+"></script>
+	<?php } ?>
+	
 </head>
 <body <?php if ($_smarty_tpl->tpl_vars['bodyclass']->value){?>class="<?php echo $_smarty_tpl->tpl_vars['bodyclass']->value;?>
 "<?php }?>>
@@ -87,14 +98,15 @@ foreach ($_from as $_smarty_tpl->tpl_vars['note']->key => $_smarty_tpl->tpl_vars
 $_smarty_tpl->tpl_vars['note']->_loop = true;
 ?>
 	<li>
-		<div class="pin pinBoard" id="<?php echo $_smarty_tpl->tpl_vars['note']->value['id'];?>
+		<div class="pin pinBoard" style="position:relative" id="<?php echo $_smarty_tpl->tpl_vars['note']->value['id'];?>
 ">
 			<h3><?php echo $_smarty_tpl->tpl_vars['note']->value['title'];?>
 </h3>
 			<div class="link"><p><?php echo $_smarty_tpl->tpl_vars['note']->value['content'];?>
 </p></div>
 			<div class="followBoard">
-				<a href="" class="Button13 Button WhiteButton"><strong>Edit</strong><span></span></a>
+				<a href="/note/<?php echo $_smarty_tpl->tpl_vars['note']->value['id'];?>
+" class="Button13 Button WhiteButton"><strong>Edit</strong><span></span></a>
 			</div>
 		</div>
 	</li>

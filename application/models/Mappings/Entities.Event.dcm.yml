@@ -1,9 +1,11 @@
-Entities\Note:
+Entities\Event:
   type: entity
   manyToOne:
     user:
       targetEntity: User
-  table: note
+    location:
+      targetEntity: Location
+  table: event
   fields:
     id:
       type: integer
@@ -12,14 +14,11 @@ Entities\Note:
         strategy: AUTO
     title:
       type: string
-      length: 100
+      length: 200
       nullable: false
-    content:
+    description:
       type: text
       nullable: false
     created:
       type: datetime
-      nullable: false
-    permission:
-      type: integer
       nullable: false

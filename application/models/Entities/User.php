@@ -53,6 +53,21 @@ class User
     private $last_login;
 
     /**
+     * @var string $ip
+     */
+    private $ip;
+
+    /**
+     * @var float $longtitude
+     */
+    private $longtitude;
+
+    /**
+     * @var float $latitude
+     */
+    private $latitude;
+
+    /**
      * @var Entities\UserProfile
      */
     private $profile;
@@ -226,6 +241,66 @@ class User
     public function getLastLogin()
     {
         return $this->last_login;
+    }
+
+    /**
+     * Set ip
+     *
+     * @param string $ip
+     */
+    public function setIp($ip)
+    {
+        $this->ip = $ip;
+    }
+
+    /**
+     * Get ip
+     *
+     * @return string $ip
+     */
+    public function getIp()
+    {
+        return $this->ip;
+    }
+
+    /**
+     * Set longtitude
+     *
+     * @param float $longtitude
+     */
+    public function setLongtitude($longtitude)
+    {
+        $this->longtitude = $longtitude;
+    }
+
+    /**
+     * Get longtitude
+     *
+     * @return float $longtitude
+     */
+    public function getLongtitude()
+    {
+        return $this->longtitude;
+    }
+
+    /**
+     * Set latitude
+     *
+     * @param float $latitude
+     */
+    public function setLatitude($latitude)
+    {
+        $this->latitude = $latitude;
+    }
+
+    /**
+     * Get latitude
+     *
+     * @return float $latitude
+     */
+    public function getLatitude()
+    {
+        return $this->latitude;
     }
 
     /**

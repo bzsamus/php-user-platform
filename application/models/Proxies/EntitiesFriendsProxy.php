@@ -33,34 +33,34 @@ class EntitiesFriendsProxy extends \Entities\Friends implements \Doctrine\ORM\Pr
         return parent::getId();
     }
 
-    public function setUid1(\Entities\User $uid1)
+    public function setUser(\Entities\User $user)
     {
         $this->_load();
-        return parent::setUid1($uid1);
+        return parent::setUser($user);
     }
 
-    public function getUid1()
+    public function getUser()
     {
         $this->_load();
-        return parent::getUid1();
+        return parent::getUser();
     }
 
-    public function setUid2(\Entities\User $uid2)
+    public function setFriend(\Entities\User $friend)
     {
         $this->_load();
-        return parent::setUid2($uid2);
+        return parent::setFriend($friend);
     }
 
-    public function getUid2()
+    public function getFriend()
     {
         $this->_load();
-        return parent::getUid2();
+        return parent::getFriend();
     }
 
 
     public function __sleep()
     {
-        return array('__isInitialized__', 'id', 'uid1', 'uid2');
+        return array('__isInitialized__', 'id', 'user', 'friend');
     }
 
     public function __clone()

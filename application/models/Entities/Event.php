@@ -3,9 +3,9 @@
 namespace Entities;
 
 /**
- * Entities\Note
+ * Entities\Event
  */
-class Note
+class Event
 {
     /**
      * @var integer $id
@@ -18,9 +18,9 @@ class Note
     private $title;
 
     /**
-     * @var text $content
+     * @var text $description
      */
-    private $content;
+    private $description;
 
     /**
      * @var datetime $created
@@ -28,14 +28,14 @@ class Note
     private $created;
 
     /**
-     * @var integer $permission
-     */
-    private $permission;
-
-    /**
      * @var Entities\User
      */
     private $user;
+
+    /**
+     * @var Entities\Location
+     */
+    private $location;
 
 
     /**
@@ -69,23 +69,23 @@ class Note
     }
 
     /**
-     * Set content
+     * Set description
      *
-     * @param text $content
+     * @param text $description
      */
-    public function setContent($content)
+    public function setDescription($description)
     {
-        $this->content = $content;
+        $this->description = $description;
     }
 
     /**
-     * Get content
+     * Get description
      *
-     * @return text $content
+     * @return text $description
      */
-    public function getContent()
+    public function getDescription()
     {
-        return $this->content;
+        return $this->description;
     }
 
     /**
@@ -109,26 +109,6 @@ class Note
     }
 
     /**
-     * Set permission
-     *
-     * @param integer $permission
-     */
-    public function setPermission($permission)
-    {
-        $this->permission = $permission;
-    }
-
-    /**
-     * Get permission
-     *
-     * @return integer $permission
-     */
-    public function getPermission()
-    {
-        return $this->permission;
-    }
-
-    /**
      * Set user
      *
      * @param Entities\User $user
@@ -146,5 +126,25 @@ class Note
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set location
+     *
+     * @param Entities\Location $location
+     */
+    public function setLocation(\Entities\Location $location)
+    {
+        $this->location = $location;
+    }
+
+    /**
+     * Get location
+     *
+     * @return Entities\Location $location
+     */
+    public function getLocation()
+    {
+        return $this->location;
     }
 }

@@ -1,0 +1,14 @@
+Entities\NoteCategory:
+  type: entity
+  manyToOne:
+    note:
+      targetEntity: Note
+    category:
+      targetEntity: Category
+  table: note_category
+  fields:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO

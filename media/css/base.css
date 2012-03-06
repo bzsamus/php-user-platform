@@ -37,13 +37,31 @@ textarea:focus, input:focus {background-color: #fff; box-shadow: inset 0 1px 1px
 .noscroll.extraScroll {margin-right: 15px;} /* Extra space on the right for FireFox */
 .clearfix:after {clear: both; display: block; height: 0; content: " "; visibility: hidden;}
 
+/* Linear Gradient */
+.lg {background-color: #f0eded; background: -moz-linear-gradient(top,#fffcfc, #f0eded); background: -o-linear-gradient(#fffcfc, #f0eded); background: -webkit-linear-gradient(#fffcfc, #f0eded); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffcfc', endColorstr='#f0eded');}
+
+.ImgLink {display: block; background-color: #fff;}
+.ImgLink:active {background-color: #221919;}
+.ImgLink img {display: block; margin: 0 auto;}
+.ImgLink:hover img,
+.ImgLink:active img {opacity: .9; filter: alpha(opacity=90);}
+
+.serif {font-family: palatino, "palatino linotype", "book antiqua", serif;}
+
+.colorlight,
+.colorlight a {color: #ad9c9c;}
+.colorless,
+.colorless a {color: #8c7e7e;}
+.colormuted,
+.colormuted a {color: #524d4d;}
+
 /* CONTAINERS
 --------------------------------------------------------------------------------------- */
 .LiquidContainer {margin: 0 auto;}
 .FixedContainer {width: 852px; margin: 0 auto;}
 .FixedContainer .StaticForm {margin-top: 96px;}
 
-#wrapper {position: relative; width: auto; padding:10px 40px;min-width: 933px; margin: 0 auto; border: none;}
+#wrapper {position: relative; width: auto; padding:0px 40px;min-width: 933px; margin: 0 auto; border: none;}
 .BoardLayout {opacity: 100;}
 
 #ColumnContainer {position: relative; min-height: 500px; margin: 60px auto 0;}
@@ -110,6 +128,20 @@ textarea:focus, input:focus {background-color: #fff; box-shadow: inset 0 1px 1px
 .pin .PinImageImg {min-height: 75px; background-color: #f2f0f0;}
 .pin .video {position: absolute; z-index: 1; top: 50%; left: 50%; width: 50px; height: 50px; margin: -25px 0 0 -25px;}
 .pin .description {margin: 10px 0 5px; overflow: hidden; word-wrap: break-word;}
+
+.convo {margin: 0 -15px; padding: 10px 15px; background-color: #f2f0f0;}
+.convo:after {clear: both; display: block; height: 0; content: " "; visibility: hidden;}
+.convo p {margin: 0 0 0 36px; overflow: hidden; word-wrap: break-word;}
+.convo .ImgLink {float: left; margin-right: 6px; width: 30px;}
+.convo .ImgLink img {width: 30px; height: 30px;}
+a.convo {display: block; padding: 12px 15px; text-align: center;}
+a.convo:hover {background-color: #f2f0f0;}
+a.convo:active {color: #221919; background-color: #e1dfdf;}
+
+.attribution {margin-top: 10px; color: #ad9c9c;}
+.attribution a {color: #8c7e7e;}
+.attribution p {display: table-cell; max-width: 156px; height: 30px; vertical-align: middle;}
+.attribution .NoImage {height: auto; margin: 0;}
 
 /* BOARD CELL
 --------------------------------------------------------------------------------------- */
@@ -304,7 +336,7 @@ form.AuthForm li {border: none !important;}
 #noteList li{
 	width:222px;
 	display:inline-block;
-	margin:0 15px;
+	margin:10px 15px;
 }
 
 #noteList pinBoard{

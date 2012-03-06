@@ -1,0 +1,17 @@
+Entities\Category:
+  type: entity
+  table: category
+  fields:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+    name:
+      type: string
+      length: 100
+      nullable: false
+    type:
+      type: string
+      length: 10
+      nullable: false

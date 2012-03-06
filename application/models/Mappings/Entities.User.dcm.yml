@@ -46,3 +46,13 @@ Entities\User:
     last_login:
       type: datetime
       nullable: false
+    ip:
+      type: string
+      length: 16
+      nullable: false
+    longtitude:
+      type: float
+      nullable: false
+    latitude:
+      type: float
+      nullable: false

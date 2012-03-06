@@ -51,6 +51,11 @@ document.getElementById('id_username').focus()
 
 {block name=js}
 $(document).ready(function(){
+	$('#id_password').keydown(function(e){
+		if(e.which == 13){
+			$('.AuthForm').submit();
+		}		
+	});
 	$('input').each(function(){
 		$(this).keyup(function(e){
 			var label = $(this).parent().find('label');

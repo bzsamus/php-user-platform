@@ -33,30 +33,6 @@ class EntitiesFriendRequestProxy extends \Entities\FriendRequest implements \Doc
         return parent::getId();
     }
 
-    public function setFromuid($fromuid)
-    {
-        $this->_load();
-        return parent::setFromuid($fromuid);
-    }
-
-    public function getFromuid()
-    {
-        $this->_load();
-        return parent::getFromuid();
-    }
-
-    public function setTouid($touid)
-    {
-        $this->_load();
-        return parent::setTouid($touid);
-    }
-
-    public function getTouid()
-    {
-        $this->_load();
-        return parent::getTouid();
-    }
-
     public function setRequestTime($requestTime)
     {
         $this->_load();
@@ -69,10 +45,46 @@ class EntitiesFriendRequestProxy extends \Entities\FriendRequest implements \Doc
         return parent::getRequestTime();
     }
 
+    public function setComplete($complete)
+    {
+        $this->_load();
+        return parent::setComplete($complete);
+    }
+
+    public function getComplete()
+    {
+        $this->_load();
+        return parent::getComplete();
+    }
+
+    public function setFrom(\Entities\User $from)
+    {
+        $this->_load();
+        return parent::setFrom($from);
+    }
+
+    public function getFrom()
+    {
+        $this->_load();
+        return parent::getFrom();
+    }
+
+    public function setTo(\Entities\User $to)
+    {
+        $this->_load();
+        return parent::setTo($to);
+    }
+
+    public function getTo()
+    {
+        $this->_load();
+        return parent::getTo();
+    }
+
 
     public function __sleep()
     {
-        return array('__isInitialized__', 'id', 'fromuid', 'touid', 'request_time');
+        return array('__isInitialized__', 'id', 'request_time', 'complete', 'from', 'to');
     }
 
     public function __clone()

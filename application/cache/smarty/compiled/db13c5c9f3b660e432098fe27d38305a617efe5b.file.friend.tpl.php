@@ -1,13 +1,13 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2012-03-04 10:51:26
-         compiled from "application/views/login.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:783273854f41615dc07156-33076755%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /* Smarty version Smarty-3.1.7, created on 2012-03-06 15:09:44
+         compiled from "application/views/friend.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:7630472334f55b838a37fd0-06748263%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    '09d7ed51d9ea3f1416786de4451669e90a6ee0a1' => 
+    'db13c5c9f3b660e432098fe27d38305a617efe5b' => 
     array (
-      0 => 'application/views/login.tpl',
-      1 => 1330829471,
+      0 => 'application/views/friend.tpl',
+      1 => 1331017780,
       2 => 'file',
     ),
     '362c2aba28b903456d185ab556019218d88a24bd' => 
@@ -17,12 +17,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '783273854f41615dc07156-33076755',
+  'nocache_hash' => '7630472334f55b838a37fd0-06748263',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.7',
-  'unifunc' => 'content_4f41615dc8e7f',
   'variables' => 
   array (
     'css' => 0,
@@ -33,8 +31,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'user' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.7',
+  'unifunc' => 'content_4f55b838afa21',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_4f41615dc8e7f')) {function content_4f41615dc8e7f($_smarty_tpl) {?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<?php if ($_valid && !is_callable('content_4f55b838afa21')) {function content_4f55b838afa21($_smarty_tpl) {?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-us" xml:lang="en-us" >
 <head>
 	<title>
@@ -89,71 +89,34 @@ $_smarty_tpl->tpl_vars['j']->_loop = true;
 </div>
 
 
-<!-- Container -->
-<div id="container">
-
-
-    <!-- Content -->
-    <div id="content" class="colM">
-        
-<div id="content-main">
-<?php echo $_smarty_tpl->tpl_vars['form']->value;?>
-
-  <div style="width:100%;text-align:left;">
-    <?php if ($_smarty_tpl->tpl_vars['error']->value){?><p class="error" style="text-align: center"><?php echo $_smarty_tpl->tpl_vars['error']->value;?>
-</p><?php }?>
-    <ul>
+<div id="wrapper">
+<div id="ColumnContainer">
+<ul id="noteList">
+<?php  $_smarty_tpl->tpl_vars['note'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['note']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['notes']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['note']->key => $_smarty_tpl->tpl_vars['note']->value){
+$_smarty_tpl->tpl_vars['note']->_loop = true;
+?>
 	<li>
-    	<input id="id_username" type="text" name="username" maxlength="30" />
-    	<label>Email</label>
-	<span class="fff"></span>
+		<div class="pin pinBoard" style="position:relative" id="<?php echo $_smarty_tpl->tpl_vars['note']->value['id'];?>
+">
+			<h3><?php echo $_smarty_tpl->tpl_vars['note']->value['title'];?>
+</h3>
+			<div class="link"><p><?php echo $_smarty_tpl->tpl_vars['note']->value['content'];?>
+</p></div>
+			<div class="followBoard">
+				<a href="/note/<?php echo $_smarty_tpl->tpl_vars['note']->value['id'];?>
+" class="Button13 Button WhiteButton"><strong>Edit</strong><span></span></a>
+			</div>
+		</div>
 	</li>
-	<li>
-    	<input type="password" name="password" id="id_password" />
-    	<label>Password</label>
-	<span class="fff"></span>
-	</li>
-	<input type="hidden" name="next" value="<?php echo $_smarty_tpl->tpl_vars['next']->value;?>
-" />
-    </ul>  
-	<div class="non_inputs">
-            <a href="#" class="Button WhiteButton Button18" onclick="$('.AuthForm').submit(); return false"><strong>Login</strong><span></span></a>
-        </div>
-</form>
-
-<script type="text/javascript">
-document.getElementById('id_username').focus()
-</script>
+<?php } ?>
+</ul>
 </div>
-        <br class="clear" />
-    </div>
-    <!-- END Content -->
-
-    <div id="footer"></div>
 </div>
-<!-- END Container -->
-
 
 <script>
 
-$(document).ready(function(){
-	$('#id_password').keydown(function(e){
-		if(e.which == 13){
-			$('.AuthForm').submit();
-		}		
-	});
-	$('input').each(function(){
-		$(this).keyup(function(e){
-			var label = $(this).parent().find('label');
-			if($(this).val() == ""){
-				label.show();
-			}
-			else{
-				label.hide();
-			}
-		});
-	});
-});
 
 </script>
 </body>

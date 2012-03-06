@@ -129,6 +129,42 @@ class EntitiesUserProxy extends \Entities\User implements \Doctrine\ORM\Proxy\Pr
         return parent::getLastLogin();
     }
 
+    public function setIp($ip)
+    {
+        $this->_load();
+        return parent::setIp($ip);
+    }
+
+    public function getIp()
+    {
+        $this->_load();
+        return parent::getIp();
+    }
+
+    public function setLongtitude($longtitude)
+    {
+        $this->_load();
+        return parent::setLongtitude($longtitude);
+    }
+
+    public function getLongtitude()
+    {
+        $this->_load();
+        return parent::getLongtitude();
+    }
+
+    public function setLatitude($latitude)
+    {
+        $this->_load();
+        return parent::setLatitude($latitude);
+    }
+
+    public function getLatitude()
+    {
+        $this->_load();
+        return parent::getLatitude();
+    }
+
     public function setProfile(\Entities\UserProfile $profile)
     {
         $this->_load();
@@ -144,7 +180,7 @@ class EntitiesUserProxy extends \Entities\User implements \Doctrine\ORM\Proxy\Pr
 
     public function __sleep()
     {
-        return array('__isInitialized__', 'id', 'profile_id', 'password', 'firstName', 'lastName', 'role', 'email', 'created', 'last_login', 'profile');
+        return array('__isInitialized__', 'id', 'profile_id', 'password', 'firstName', 'lastName', 'role', 'email', 'created', 'last_login', 'ip', 'longtitude', 'latitude', 'profile');
     }
 
     public function __clone()

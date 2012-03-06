@@ -9,11 +9,13 @@
 <div id="ColumnContainer" style="margin-top: 49px;">
 
 {foreach from=$notes item=note}
-<div class="pin" data-id="{$note.id}">
+<div style="margin-top:15px;" class="pin" data-id="{$note.id}">
 	<h3>{$note.0.title}</h3>
+	{if $note.image}
         <a href="/note/{$note.0.id}/" class="PinImage ImgLink">
             	<img src="http://media-cdn.pinterest.com/upload/83598136802667669_XNijjvaP_b.jpg" alt="star light fixture - West Vintage Trading Company" class="PinImageImg" style="height: 144px;" />
         </a>
+	{/if}
         <p class="description">{$note.0.content}</p>
         <p class="stats colorless"><span class="LikesCount">11 likes&nbsp;&nbsp;</span></p>
         <div class="convo attribution clearfix">

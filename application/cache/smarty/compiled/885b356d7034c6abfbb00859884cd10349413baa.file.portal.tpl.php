@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2012-03-04 05:28:13
+<?php /* Smarty version Smarty-3.1.7, created on 2012-03-04 10:28:55
          compiled from "application/views/portal.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:14848814814f51d9c57b1130-72885629%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '885b356d7034c6abfbb00859884cd10349413baa' => 
     array (
       0 => 'application/views/portal.tpl',
-      1 => 1330810082,
+      1 => 1330828132,
       2 => 'file',
     ),
     '362c2aba28b903456d185ab556019218d88a24bd' => 
@@ -97,14 +97,16 @@ $_smarty_tpl->tpl_vars['j']->_loop = true;
 foreach ($_from as $_smarty_tpl->tpl_vars['note']->key => $_smarty_tpl->tpl_vars['note']->value){
 $_smarty_tpl->tpl_vars['note']->_loop = true;
 ?>
-<div class="pin" data-id="<?php echo $_smarty_tpl->tpl_vars['note']->value['id'];?>
+<div style="margin-top:15px;" class="pin" data-id="<?php echo $_smarty_tpl->tpl_vars['note']->value['id'];?>
 ">
 	<h3><?php echo $_smarty_tpl->tpl_vars['note']->value[0]['title'];?>
 </h3>
+	<?php if ($_smarty_tpl->tpl_vars['note']->value['image']){?>
         <a href="/note/<?php echo $_smarty_tpl->tpl_vars['note']->value[0]['id'];?>
 /" class="PinImage ImgLink">
             	<img src="http://media-cdn.pinterest.com/upload/83598136802667669_XNijjvaP_b.jpg" alt="star light fixture - West Vintage Trading Company" class="PinImageImg" style="height: 144px;" />
         </a>
+	<?php }?>
         <p class="description"><?php echo $_smarty_tpl->tpl_vars['note']->value[0]['content'];?>
 </p>
         <p class="stats colorless"><span class="LikesCount">11 likes&nbsp;&nbsp;</span></p>

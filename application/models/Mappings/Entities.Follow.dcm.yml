@@ -1,16 +1,11 @@
-Entities\Friends:
+Entities\Follow:
   type: entity
   manyToOne:
     user:
       targetEntity: User
-    friend:
+    follow:
       targetEntity: User
-  table: friends
-  uniqueConstraints:
-    user_index:
-      columns:
-       - user_id
-       - friend_id
+  table: follow
   fields:
     id:
       type: integer

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2012-03-04 04:34:26
+<?php /* Smarty version Smarty-3.1.7, created on 2012-03-06 13:35:25
          compiled from "application/views/profile.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:10905658154f51f0df672070-62094302%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -13,7 +13,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '362c2aba28b903456d185ab556019218d88a24bd' => 
     array (
       0 => 'application/views/index.tpl',
-      1 => 1330804226,
+      1 => 1330809765,
       2 => 'file',
     ),
   ),
@@ -27,6 +27,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   array (
     'css' => 0,
     'c' => 0,
+    'javascript' => 0,
+    'j' => 0,
     'bodyclass' => 0,
     'user' => 0,
   ),
@@ -49,6 +51,15 @@ $_smarty_tpl->tpl_vars['c']->_loop = true;
 " />
 	<?php } ?>
 	<script type="text/javascript" src="/media/js/jquery.min.js"></script>
+	<?php  $_smarty_tpl->tpl_vars['j'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['j']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['javascript']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['j']->key => $_smarty_tpl->tpl_vars['j']->value){
+$_smarty_tpl->tpl_vars['j']->_loop = true;
+?>
+	<script type="text/javascript" src="/media/js/<?php echo $_smarty_tpl->tpl_vars['j']->value;?>
+"></script>
+	<?php } ?>
+	
 </head>
 <body <?php if ($_smarty_tpl->tpl_vars['bodyclass']->value){?>class="<?php echo $_smarty_tpl->tpl_vars['bodyclass']->value;?>
 "<?php }?>>

@@ -38,13 +38,13 @@ class User extends CI_Controller {
 		}
 	}
 
+     public function logout(){
+        $this->authex->logout();
+        redirect("/");
+    }
+
 	public function index(){
 	
-	}
-
-	public function logout(){
-		$this->authex->logout();
-		redirect("/");
 	}
 
 	public function profile(){

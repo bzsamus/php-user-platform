@@ -13,19 +13,24 @@ class FriendRequest
     private $id;
 
     /**
-     * @var integer $fromuid
-     */
-    private $fromuid;
-
-    /**
-     * @var integer $touid
-     */
-    private $touid;
-
-    /**
      * @var datetime $request_time
      */
     private $request_time;
+
+    /**
+     * @var smallint $complete
+     */
+    private $complete;
+
+    /**
+     * @var Entities\User
+     */
+    private $from;
+
+    /**
+     * @var Entities\User
+     */
+    private $to;
 
 
     /**
@@ -36,46 +41,6 @@ class FriendRequest
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set fromuid
-     *
-     * @param integer $fromuid
-     */
-    public function setFromuid($fromuid)
-    {
-        $this->fromuid = $fromuid;
-    }
-
-    /**
-     * Get fromuid
-     *
-     * @return integer $fromuid
-     */
-    public function getFromuid()
-    {
-        return $this->fromuid;
-    }
-
-    /**
-     * Set touid
-     *
-     * @param integer $touid
-     */
-    public function setTouid($touid)
-    {
-        $this->touid = $touid;
-    }
-
-    /**
-     * Get touid
-     *
-     * @return integer $touid
-     */
-    public function getTouid()
-    {
-        return $this->touid;
     }
 
     /**
@@ -96,5 +61,65 @@ class FriendRequest
     public function getRequestTime()
     {
         return $this->request_time;
+    }
+
+    /**
+     * Set complete
+     *
+     * @param smallint $complete
+     */
+    public function setComplete($complete)
+    {
+        $this->complete = $complete;
+    }
+
+    /**
+     * Get complete
+     *
+     * @return smallint $complete
+     */
+    public function getComplete()
+    {
+        return $this->complete;
+    }
+
+    /**
+     * Set from
+     *
+     * @param Entities\User $from
+     */
+    public function setFrom(\Entities\User $from)
+    {
+        $this->from = $from;
+    }
+
+    /**
+     * Get from
+     *
+     * @return Entities\User $from
+     */
+    public function getFrom()
+    {
+        return $this->from;
+    }
+
+    /**
+     * Set to
+     *
+     * @param Entities\User $to
+     */
+    public function setTo(\Entities\User $to)
+    {
+        $this->to = $to;
+    }
+
+    /**
+     * Get to
+     *
+     * @return Entities\User $to
+     */
+    public function getTo()
+    {
+        return $this->to;
     }
 }

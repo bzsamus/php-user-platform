@@ -3,9 +3,9 @@
 namespace Entities;
 
 /**
- * Entities\Friends
+ * Entities\Follow
  */
-class Friends
+class Follow
 {
     /**
      * @var integer $id
@@ -20,7 +20,7 @@ class Friends
     /**
      * @var Entities\User
      */
-    private $friend;
+    private $follow;
 
 
     /**
@@ -54,22 +54,22 @@ class Friends
     }
 
     /**
-     * Set friend
+     * Set follow
      *
-     * @param Entities\User $friend
+     * @param Entities\User $follow
      */
-    public function setFriend(\Entities\User $friend)
+    public function setFollow(\Entities\User $follow)
     {
-        $this->friend = $friend;
+        $this->follow = $follow;
     }
 
     /**
-     * Get friend
+     * Get follow
      *
-     * @return Entities\User $friend
+     * @return Entities\User $follow
      */
-    public function getFriend()
+    public function getFollow()
     {
-        return $this->friend;
+        return $this->follow;
     }
 }

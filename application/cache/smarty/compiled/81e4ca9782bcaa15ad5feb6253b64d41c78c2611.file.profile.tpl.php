@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2012-03-06 13:35:25
+<?php /* Smarty version Smarty-3.1.7, created on 2012-05-09 10:02:51
          compiled from "application/views/profile.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:10905658154f51f0df672070-62094302%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,13 +7,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '81e4ca9782bcaa15ad5feb6253b64d41c78c2611' => 
     array (
       0 => 'application/views/profile.tpl',
-      1 => 1330774069,
+      1 => 1331196734,
       2 => 'file',
     ),
     '362c2aba28b903456d185ab556019218d88a24bd' => 
     array (
       0 => 'application/views/index.tpl',
-      1 => 1330809765,
+      1 => 1336528701,
       2 => 'file',
     ),
   ),
@@ -92,6 +92,7 @@ $_smarty_tpl->tpl_vars['j']->_loop = true;
 <div class="FixedContainer">
 <?php echo $_smarty_tpl->tpl_vars['form']->value;?>
 
+<input type="hidden" name="update" value="1"></input>
 <h3>Edit Profile</h3>
 <ul>
 	<!-- Email -->
@@ -148,11 +149,17 @@ $_smarty_tpl->tpl_vars['j']->_loop = true;
                 <div class="Right">
                         
                     <div class="current_avatar_wrapper">
-                      <img src="" class="current_avatar floatLeft" alt="Current profile picture" />
+                      <img src="<?php if ($_smarty_tpl->tpl_vars['user']->value['profile_pic']){?>/upload/<?php echo $_smarty_tpl->tpl_vars['user']->value['profile_pic'];?>
+<?php }?>" class="current_avatar floatLeft" alt="Current profile picture" />
                     </div>
 
                     <div class="floatLeft NoInput" style="padding-left: 12px;">
-                        <p><a href="#" class="Button WhiteButton Button18 change_avatar"><strong>Upload an Image</strong><span></span></a><input id="id_img" type="file" name="img" size="6" /></p>
+                        <p><a style="cursor:pointer;" class="Button WhiteButton Button18 change_avatar"><strong>Upload an Image</strong><span></span></a><input id="id_img" type="file" name="img" size="6" /></p>
+                        <input type="hidden" name="imgname" id="imgname" value="<?php echo $_smarty_tpl->tpl_vars['user']->value['profile_pic'];?>
+"></input>
+                        <form style="" id="uploadForm" name="form" action="" method="POST" enctype="multipart/form-data"> 
+                          <input style="display:none" name="fileToUpload" type="file" size="6" id="fileToUpload">
+                      </form>
                     </div>
                 </div>
             </li>
@@ -161,8 +168,38 @@ $_smarty_tpl->tpl_vars['j']->_loop = true;
                 <a href="#" class="Button RedButton Button24 userform_submit editpage_submit" onclick="$('#userProfile').submit(); return false"><strong>Save Profile</strong><span></span></a>
             </div>
 </form>
+<br/><br/>
 
 <script>
+
+$('.change_avatar').bind('click',function(){
+  $(this).hide();
+  $('#fileToUpload').show();
+});
+$('input:file').change(function(){
+  $.ajaxFileUpload
+    (
+        {
+            url:'/upload/profile', 
+            secureuri:false,
+            fileElementId:'fileToUpload',
+            dataType: 'json',
+            success: function (data, status)
+            {
+                if(data.error){
+                  alert(data.error);
+                }
+                else{
+                  $('.current_avatar').attr('src','/upload/'+data.filename);
+                  $('#imgname').attr('value',data.filename);
+                }
+            },
+            error: function (data, status, e){
+              alert(e);
+            }
+        }
+    )
+});
 
 </script>
 </body>

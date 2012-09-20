@@ -3,6 +3,7 @@
 <head>
 	<title>{block name=title}{/block}</title>
 	<link rel="stylesheet" type="text/css" href="/media/css/base.css" />
+    <link rel="stylesheet" type="text/css" href="/media/css/bootstrap.min.css" />
 	{foreach from=$css item=c}
 		<link rel="stylesheet" type="text/css" href="/media/css/{$c}" />
 	{/foreach}

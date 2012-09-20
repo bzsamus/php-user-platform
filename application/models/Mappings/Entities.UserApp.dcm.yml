@@ -1,0 +1,20 @@
+Entities\UserApp:
+  type: entity
+  manyToOne:
+    app:
+      targetEntity: App
+    user:
+      targetEntity: User
+  table: user_app
+  fields:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+    relations:
+      type: integer
+      nullable: false
+    added:
+      type: datetime
+      nullable: false

@@ -17,10 +17,12 @@
         </a>
 	{/if}
         <p class="description">{$note.0.content}</p>
+        <!--
         <p class="stats colorless"><span class="LikesCount">11 likes&nbsp;&nbsp;</span></p>
+        -->
         <div class="convo attribution clearfix">
                 <a href="/user/{$note.uid}" title="{$note.firstName} {$note.lastName}" class="ImgLink">
-                    <img src="https://a248.e.akamai.net/media.pinterest.com.s3.amazonaws.com/avatars/kelley_white3-49.jpg" alt="Picture of Kelley W" />
+                    <img src="{if $note.profile_pic}/upload/{$note.profile_pic}{/if}" alt="Picture of {$note.firstName} {$note.lastName}" />
                 </a>
                 <p>
                     by <a href="/user/{$note.uid}">{$note.firstName} {$note.lastName}</a>

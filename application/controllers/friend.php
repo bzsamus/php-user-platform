@@ -16,6 +16,9 @@ class Friend extends CI_Controller {
           $user = $this->authex->get_userdata();
           $data['user'] = $user;
       }
+      else{
+         redirect("user/login/?next=friend");
+      }
       $friends = $request = '';
       $tmp = $this->doctrine->em->getRepository('Entities\Friends')->findBy(array('user' => $user['id']));
       if(is_array($tmp)){

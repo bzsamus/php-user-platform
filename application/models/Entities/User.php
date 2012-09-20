@@ -68,6 +68,11 @@ class User
     private $latitude;
 
     /**
+     * @var string $fbid
+     */
+    private $fbid;
+
+    /**
      * @var Entities\UserProfile
      */
     private $profile;
@@ -301,6 +306,26 @@ class User
     public function getLatitude()
     {
         return $this->latitude;
+    }
+
+    /**
+     * Set fbid
+     *
+     * @param string $fbid
+     */
+    public function setFbid($fbid)
+    {
+        $this->fbid = $fbid;
+    }
+
+    /**
+     * Get fbid
+     *
+     * @return string $fbid
+     */
+    public function getFbid()
+    {
+        return $this->fbid;
     }
 
     /**

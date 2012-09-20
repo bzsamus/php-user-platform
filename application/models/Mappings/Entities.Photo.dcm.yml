@@ -1,0 +1,31 @@
+Entities\Photo:
+  type: entity
+  manyToOne:
+    user:
+      targetEntity: User
+  table: photo
+  fields:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+    path:
+      type: string
+      length: 255
+      nullable: false
+    description:
+      type: text
+      nullable: false
+    uploaded:
+      type: datetime
+      nullable: false
+    permission:
+      type: integer
+      nullable: false
+    longtitude:
+      type: float
+      nullable: false
+    latitude:
+      type: float
+      nullable: false

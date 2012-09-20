@@ -30,7 +30,8 @@ class Authex{
 	  $user['email'] = $tmp->getEmail();
 	  $user['location'] = $tmp->getProfile()->getLocation();
 	  $user['about'] = $tmp->getProfile()->getAbout();
-	  return $user;
+	  $user['profile_pic'] = $tmp->getProfile()->getProfilePic();
+      return $user;
       }
  }
 

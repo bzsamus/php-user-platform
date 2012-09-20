@@ -165,6 +165,18 @@ class EntitiesUserProxy extends \Entities\User implements \Doctrine\ORM\Proxy\Pr
         return parent::getLatitude();
     }
 
+    public function setFbid($fbid)
+    {
+        $this->_load();
+        return parent::setFbid($fbid);
+    }
+
+    public function getFbid()
+    {
+        $this->_load();
+        return parent::getFbid();
+    }
+
     public function setProfile(\Entities\UserProfile $profile)
     {
         $this->_load();
@@ -180,7 +192,7 @@ class EntitiesUserProxy extends \Entities\User implements \Doctrine\ORM\Proxy\Pr
 
     public function __sleep()
     {
-        return array('__isInitialized__', 'id', 'profile_id', 'password', 'firstName', 'lastName', 'role', 'email', 'created', 'last_login', 'ip', 'longtitude', 'latitude', 'profile');
+        return array('__isInitialized__', 'id', 'profile_id', 'password', 'firstName', 'lastName', 'role', 'email', 'created', 'last_login', 'ip', 'longtitude', 'latitude', 'fbid', 'profile');
     }
 
     public function __clone()

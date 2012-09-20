@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.7, created on 2012-03-04 10:51:26
+<?php /* Smarty version Smarty-3.1.7, created on 2012-08-27 12:44:12
          compiled from "application/views/login.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:783273854f41615dc07156-33076755%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -13,7 +13,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '362c2aba28b903456d185ab556019218d88a24bd' => 
     array (
       0 => 'application/views/index.tpl',
-      1 => 1330809765,
+      1 => 1346042633,
       2 => 'file',
     ),
   ),
@@ -41,7 +41,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <?php echo $_smarty_tpl->tpl_vars['title']->value;?>
 
 </title>
-	<link rel="stylesheet" type="text/css" href="/media/css/base.css" />
+    <link rel="stylesheet" type="text/css" href="/media/css/bootstrap.min.css" />
 	<?php  $_smarty_tpl->tpl_vars['c'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['c']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['css']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['c']->key => $_smarty_tpl->tpl_vars['c']->value){
@@ -51,7 +51,8 @@ $_smarty_tpl->tpl_vars['c']->_loop = true;
 " />
 	<?php } ?>
 	<script type="text/javascript" src="/media/js/jquery.min.js"></script>
-	<?php  $_smarty_tpl->tpl_vars['j'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['j']->_loop = false;
+	<script type="text/javascript" src="/media/js/bootstrap.min.js"></script>
+    <?php  $_smarty_tpl->tpl_vars['j'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['j']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['javascript']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['j']->key => $_smarty_tpl->tpl_vars['j']->value){
 $_smarty_tpl->tpl_vars['j']->_loop = true;
@@ -64,14 +65,13 @@ $_smarty_tpl->tpl_vars['j']->_loop = true;
 <body <?php if ($_smarty_tpl->tpl_vars['bodyclass']->value){?>class="<?php echo $_smarty_tpl->tpl_vars['bodyclass']->value;?>
 "<?php }?>>
 
-<div id="Header">
-    <div class="LiquidContainer HeaderContainer">
-
-<ul id="Navigation">
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+<ul id="Navigation" class="nav">
         <?php if (!$_smarty_tpl->tpl_vars['user']->value){?>
         <li><a href="/user/login/?next=%2F" class="nav LoginNav">Login</a></li>
         <?php }else{ ?>
-        <li id="UserNav">
+        <li class="dropdown" id="UserNav">
                 <a href="/user/" class="nav"><?php echo $_smarty_tpl->tpl_vars['user']->value['firstname'];?>
 <span></span></a>
                 <ul>

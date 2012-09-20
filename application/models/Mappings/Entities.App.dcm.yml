@@ -1,0 +1,20 @@
+Entities\App:
+  type: entity
+  table: app
+  fields:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+    name:
+      type: string
+      length: 100
+      nullable: false
+    description:
+      type: text
+      nullable: false
+    icon:
+      type: string
+      length: 100
+      nullable: false

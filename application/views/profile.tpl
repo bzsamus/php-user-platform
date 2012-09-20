@@ -7,6 +7,7 @@
 {block name=body}
 <div class="FixedContainer">
 {$form}
+<input type="hidden" name="update" value="1"></input>
 <h3>Edit Profile</h3>
 <ul>
 	<!-- Email -->
@@ -60,11 +61,15 @@
                 <div class="Right">
                         
                     <div class="current_avatar_wrapper">
-                      <img src="" class="current_avatar floatLeft" alt="Current profile picture" />
+                      <img src="{if $user.profile_pic}/upload/{$user.profile_pic}{/if}" class="current_avatar floatLeft" alt="Current profile picture" />
                     </div>
 
                     <div class="floatLeft NoInput" style="padding-left: 12px;">
-                        <p><a href="#" class="Button WhiteButton Button18 change_avatar"><strong>Upload an Image</strong><span></span></a><input id="id_img" type="file" name="img" size="6" /></p>
+                        <p><a style="cursor:pointer;" class="Button WhiteButton Button18 change_avatar"><strong>Upload an Image</strong><span></span></a><input id="id_img" type="file" name="img" size="6" /></p>
+                        <input type="hidden" name="imgname" id="imgname" value="{$user.profile_pic}"></input>
+                        <form style="" id="uploadForm" name="form" action="" method="POST" enctype="multipart/form-data"> 
+                          <input style="display:none" name="fileToUpload" type="file" size="6" id="fileToUpload">
+                      </form>
                     </div>
                 </div>
             </li>
@@ -73,4 +78,35 @@
                 <a href="#" class="Button RedButton Button24 userform_submit editpage_submit" onclick="$('#userProfile').submit(); return false"><strong>Save Profile</strong><span></span></a>
             </div>
 </form>
+<br/><br/>
+{/block}
+{block name=js}
+$('.change_avatar').bind('click',function(){
+  $(this).hide();
+  $('#fileToUpload').show();
+});
+$('input:file').change(function(){
+  $.ajaxFileUpload
+    (
+        {
+            url:'/upload/profile', 
+            secureuri:false,
+            fileElementId:'fileToUpload',
+            dataType: 'json',
+            success: function (data, status)
+            {
+                if(data.error){
+                  alert(data.error);
+                }
+                else{
+                  $('.current_avatar').attr('src','/upload/'+data.filename);
+                  $('#imgname').attr('value',data.filename);
+                }
+            },
+            error: function (data, status, e){
+              alert(e);
+            }
+        }
+    )
+});
 {/block}

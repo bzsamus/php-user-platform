@@ -56,3 +56,7 @@ Entities\User:
     latitude:
       type: float
       nullable: false
+    fbid:
+      type: string
+      length: 15
+      nullable: true

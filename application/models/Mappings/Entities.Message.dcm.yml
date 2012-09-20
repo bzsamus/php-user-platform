@@ -1,0 +1,23 @@
+Entities\Message:
+  type: entity
+  manyToOne:
+    from_user:
+      targetEntity: User
+    to_user:
+      targetEntity: User
+  table: message
+  fields:
+    id:
+      type: integer
+      id: true
+      generator:
+        strategy: AUTO
+    content:
+      type: text
+      nullable: false
+    created:
+      type: datetime
+      nullable: false
+    readed:
+      type: integer
+      nullable: false
